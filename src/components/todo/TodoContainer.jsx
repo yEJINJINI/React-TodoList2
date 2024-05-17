@@ -1,9 +1,9 @@
-import React from "react";
+import { useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
 const TodoContainer = () => {
-  const [todoTodo, setTodoTodo] = useState([
+  const [todos, setTodos] = useState([
     {
       id: 1,
       title: "할 일1",
@@ -12,11 +12,15 @@ const TodoContainer = () => {
     },
   ]);
 
+  const workingTodos = todos.filter((todo) => !todo.isDone);
+  const doneTodos = todos.filter((todo) => todo.isDone);
+
   return (
     <section>
       <h1 className="title">Todo List</h1>
-      <TodoForm setTodoTodo={setTodoTodo} />
-      <TodoList todoTodo={todoTodo} />
+      <TodoForm setTodos={setTodos} />
+      <TodoList title="Working" todos={workingTodos} setTodos={setTodos} />
+      <TodoList title="Done" todos={doneTodos} setTodos={setTodos} />
     </section>
   );
 };
