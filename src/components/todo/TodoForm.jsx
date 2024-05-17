@@ -1,4 +1,4 @@
-const TodoForm = ({ setTodos }) => {
+const TodoForm = ({ setTodoTodo }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -15,7 +15,7 @@ const TodoForm = ({ setTodos }) => {
       content,
       isDone: false,
     };
-    setTodos((prevTodos) => [nextTodo, ...prevTodos]);
+    setTodoTodo((prevTodoTodo) => [nextTodo, ...prevTodoTodo]);
 
     e.target.reset();
   };

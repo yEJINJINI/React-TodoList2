@@ -3,7 +3,7 @@ import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
 const TodoContainer = () => {
-  const [todos, setTodos] = userState([
+  const [todoTodo, setTodoTodo] = useState([
     {
       id: 1,
       title: "할 일1",
@@ -11,15 +11,13 @@ const TodoContainer = () => {
       isDone: false,
     },
   ]);
-  console.log(todos);
+
   return (
-    <div>
-      <TodoForm setTodos={setTodos} />
-      <div>
-        <TodoList />
-        <TodoList />
-      </div>
-    </div>
+    <section>
+      <h1 className="title">Todo List</h1>
+      <TodoForm setTodoTodo={setTodoTodo} />
+      <TodoList todoTodo={todoTodo} />
+    </section>
   );
 };
 
